@@ -243,5 +243,16 @@ namespace aspect
                                   "is positive) and the magnitude changes linearly with depth. The "
                                   "magnitude of gravity at the surface and bottom is read from the "
                                   "input file in a section ``Gravity model/Radial linear''.")
+
+    ASPECT_REGISTER_GRAVITY_MODEL(RadialGlisovic,
+                                  "radial glisovic",
+                                  "A gravity model which follows the model shown in figure 1 of "
+                                  "Glisovic and Forte, Geoscience Frontiers, 2014.")
+    
+    ASPECT_REGISTER_GRAVITY_MODEL(RadialNegativeGlisovic,
+                                  "radial negative glisovic",
+                                  "A gravity model which follows the model shown in figure 1 of "
+                                  "Glisovic and Forte, Geoscience Frontiers, 2014. The only "
+                                  "difference is that the negative of the plotted values is taken.")
   }
 }
