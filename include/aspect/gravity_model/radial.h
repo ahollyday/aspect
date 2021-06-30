@@ -101,6 +101,34 @@ namespace aspect
      *
      * @ingroup GravityModels
      */
+    
+    template <int dim>
+    class RadialGlisovic : public Interface<dim>
+    {
+      public:
+	/**
+ 	*	* Retrun the gravity vector as a function of position.
+ 	*		*/
+	virtual Tensor<1,dim> gravity_vector (const Point<dim> &position) const;
+    };
+
+    template <int dim>
+    class RadialNegativeGlisovic : public Interface<dim>
+    {
+      public:
+	/**
+ 	*  *		* Return the gravity vector as a function of position.
+ 	*   *			*/
+	virtual Tensor<1,dim> gravity_vector (const Point<dim> &position) const;
+    };
+
+   /**
+    * A class that describes gravity as a radial vector of linearly
+    * changing magnitude with depth.
+    *
+    * @ingroup GravityModels
+    */
+
     template <int dim>
     class RadialLinear : public Interface<dim>, public SimulatorAccess<dim>
     {
