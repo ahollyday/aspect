@@ -19,14 +19,14 @@
 */
 
 
-#ifndef _aspect_boundary_traction_function_h
-#define _aspect_boundary_traction_function_h
+#ifndef _aspect_boundary_traction_GIAtraction_h
+#define _aspect_boundary_traction_GIAtraction_h
 
 #include <aspect/boundary_traction/interface.h>
 #include <aspect/simulator_access.h>
 #include <aspect/utilities.h>
 
-#include <deal.II/base/parsed_function.h>
+// #include <deal.II/base/parsed_function.h>
 
 namespace aspect
 {
@@ -47,7 +47,7 @@ namespace aspect
         /**
          * Constructor.
          */
-        traction ();
+        GIAtraction ();
 
         /**
          * Return the boundary traction as a function of position. The
@@ -91,13 +91,13 @@ namespace aspect
         /**
          * A function object representing the components of the traction.
          */
-        Functions::ParsedFunction<dim> boundary_traction_function;
+        // Functions::ParsedFunction<dim> boundary_traction_function;
 
         /**
          * The coordinate representation to evaluate the function. Possible
          * choices are depth, cartesian and spherical.
          */
-        Utilities::Coordinates::CoordinateSystem coordinate_system;
+        // Utilities::Coordinates::CoordinateSystem coordinate_system;
     };
   }
 }

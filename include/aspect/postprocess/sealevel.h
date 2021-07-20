@@ -33,6 +33,12 @@ namespace aspect
     {
       public:
         /**
+         * Function to determine sea level for any given location
+         */
+        double
+        sea_level_equation(const Point<dim> &position);
+
+        /**
          * Output sea level [m] to file
          */
         std::pair<std::string,std::string> execute (TableHandler &statistics) override;
@@ -74,12 +80,6 @@ namespace aspect
          */
 
       private:
-        /**
-         * Function to determine sea level for any given location
-         */
-        double
-        sea_level_equation(const Point<dim> &position);
-
         /**
          * Whether or not to produce text files with sea level values
          */
