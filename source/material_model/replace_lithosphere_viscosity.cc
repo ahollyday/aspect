@@ -58,6 +58,10 @@ namespace aspect
 
           if (depth <= lab_depth)
             out.viscosities[i] = lithosphere_viscosity;
+          if (depth <= (0.9 * lab_depth))
+            out.viscosities[i] = 1e21;
+          if (depth <= (0.8 * lab_depth))
+            out.viscosities[i] = 8e21;
         }
 
     }
