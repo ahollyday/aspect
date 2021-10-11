@@ -56,11 +56,9 @@ namespace aspect
           const double depth = this->SimulatorAccess<dim>::get_geometry_model().depth(in.position[i]);
           const double lab_depth = lab_depth_lookup.get_lab_depth(in.position[i]);
 
-          if (depth <= 1.5 * lab_depth)
-            out.viscosities[i] = 1e21;
+          if (depth <= 1.2 * lab_depth)
+            out.viscosities[i] = 5e21;
           if (depth <= (1.0 * lab_depth))
-            out.viscosities[i] = 1e22;
-          if (depth <= (0.5 * lab_depth))
             out.viscosities[i] = lithosphere_viscosity;
         }
 
