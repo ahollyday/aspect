@@ -41,44 +41,7 @@ namespace aspect
           out.viscosities[i] = constant_rheology.compute_viscosity();
           out.specific_heat[i] = reference_specific_heat;
           out.thermal_conductivities[i] = k_value;
-          //out.thermal_expansion_coefficients[i] = thermal_alpha;
-          
-          // --------------- Thermal expansivisty
-          //           // Set up three values of thermal expansion for different depths and
-          //                     // interpolate linearly inbetween          
-
-          const double depth = this->get_geometry_model().depth(in.position[i]);
-          double thermal_alpha_val = 0.;
-          double B_val, A_val;
-
-          std::vector<double>  alpha_val (3,3.5e-5);
-          std::vector<double>  depth_val_a (3,0);
-
-          alpha_val[1] = 2.5e-5;
-          alpha_val[2] = 1.0e-5;
-
-          depth_val_a[1] =  670000;
-          depth_val_a[2] = 2890000;
-
-          if (depth < 670000)
-            {
-              B_val = (alpha_val[0] - alpha_val[1])/(depth_val_a[0] - depth_val_a[1]);
-              A_val = alpha_val[0] - B_val * depth_val_a[0];
-              thermal_alpha_val = A_val + B_val * depth;
-            }
-
-          if (depth >= 670000)
-            {
-              B_val = (alpha_val[1] - alpha_val[2])/(depth_val_a[1] - depth_val_a[2]);
-              A_val = alpha_val[1] - B_val * depth_val_a[1];
-              thermal_alpha_val = A_val + B_val * depth;
-            }
-
-          if (thermal_alpha_constant == true)
-            thermal_alpha_val = thermal_alpha;
-
-          out.thermal_expansion_coefficients[i] = thermal_alpha_val;
-
+          out.thermal_expansion_coefficients[i] = thermal_alpha;
 
           double rho = reference_rho * std::exp(reference_compressibility * (pressure - this->get_surface_pressure()));
           rho *= (1 - thermal_alpha * (temperature - this->get_adiabatic_conditions().temperature(position)));
