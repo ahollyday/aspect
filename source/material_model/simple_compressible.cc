@@ -74,8 +74,8 @@ namespace aspect
               thermal_alpha_val = A_val + B_val * depth;
             }
 
-          if (thermal_alpha_constant == true)
-            thermal_alpha_val = thermal_alpha;
+          //if (thermal_alpha_constant == true)
+          //  thermal_alpha_val = thermal_alpha;
 
           out.thermal_expansion_coefficients[i] = thermal_alpha_val;
 
